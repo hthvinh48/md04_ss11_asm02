@@ -1,12 +1,10 @@
 package com.example.inventoryservice.controller;
 
+import com.example.inventoryservice.dto.UpdatePriceRequest;
 import com.example.inventoryservice.entity.Medicine;
 import com.example.inventoryservice.service.MedicineService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/medicines")
@@ -18,5 +16,11 @@ public class MedicineController {
     @GetMapping("/{id}")
     public Medicine getById(@PathVariable String id) {
         return medicineService.getById(id);
+    }
+
+    @PutMapping("/{id}/price")
+    public Medicine updatePrice(@PathVariable String id,
+                                @RequestBody UpdatePriceRequest request) {
+        return medicineService.updatePrice(id, request.getPrice());
     }
 }

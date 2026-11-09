@@ -22,4 +22,5 @@ public class Medicine implements java.io.Serializable {
     private String id;
     private String name;
     private int stock;
+    private double price;
 }

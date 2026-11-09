@@ -20,8 +20,8 @@ public class InventoryServiceApplication {
     CommandLineRunner seed(MedicineRepository repo) {
         return args -> {
             if (repo.count() == 0) {
-                repo.save(new Medicine("PARA-500", "Paracetamol 500mg", 100));
-                repo.save(new Medicine("AMOX-250", "Amoxicillin 250mg", 50));
+                repo.save(new Medicine("PARA-500", "Paracetamol 500mg", 100, 15000));
+                repo.save(new Medicine("AMOX-250", "Amoxicillin 250mg", 50, 42000));
             }
         };
     }
